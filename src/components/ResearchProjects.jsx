@@ -1,61 +1,96 @@
 import React from 'react';
+import styles from './ResearchProjects.module.css';
 
 function ResearchProjects() {
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      console.log(`Element with ID ${id} not found`);
+    }
+  };
+
   return (
-    <div className="row m-0 p-4 justify-content-center">
-      <div className="col-12 mb-5" id="research-projects">
-        <h3
-          className="text-center animate-fade-in-up"
-          style={{ fontSize: '2rem', fontWeight: 600, color: '#ffffff' }}
+    <div className={styles.container}>
+      <div className={styles.header} id="research-projects">
+        <h3 className={styles.subTitle}>Research Projects</h3>
+      </div>
+      <div className={styles.cardWrapper}>
+        <div className={`${styles.researchCard} ${styles.animateSlideInLeft}`}>
+          <span className={styles.researchYear}>2024</span>
+          <h4>
+            Kannada Handwritten Braille Recognition{' '}
+            <span className={styles.tech}>with YOLOv5 & CNN</span>
+          </h4>
+          <p>
+            Crafted a cutting-edge system to detect and classify handwritten Kannada Braille dot patterns from real-world images using deep learning techniques.
+          </p>
+          <a
+            href="https://drive.google.com/file/d/1Cxd-8DLUOTNA6rFBjaHiW9exOv1LD0sI/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.researchLink}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#def71c';
+              e.target.style.boxShadow = '0 4px 15px rgba(222, 247, 28, 0.5)';
+              e.target.style.transform = 'scale(1.05)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = '#b6cb18';
+              e.target.style.boxShadow = 'none';
+              e.target.style.transform = 'scale(1)';
+            }}
+          >
+            Read Paper
+          </a>
+        </div>
+        <div className={`${styles.researchCard} ${styles.animateSlideInRight}`} style={{ animationDelay: '0.2s' }}>
+          <span className={styles.researchYear}>2024</span>
+          <h4>
+            Pathology Dataset Classification{' '}
+            <span className={styles.tech}>with Random Forest & KNN</span>
+          </h4>
+          <p>
+            Engineered a predictive model for chronic kidney disease, leveraging multiple algorithms and boosting accuracy with preprocessing and ROC-AUC analysis.
+          </p>
+          <a
+            href="https://drive.google.com/file/d/1Z9ecleIabhfqhOXC18KdEfPMeCfGnolo/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.researchLink}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#def71c';
+              e.target.style.boxShadow = '0 4px 15px rgba(222, 247, 28, 0.5)';
+              e.target.style.transform = 'scale(1.05)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = '#b6cb18';
+              e.target.style.boxShadow = 'none';
+              e.target.style.transform = 'scale(1)';
+            }}
+          >
+            Read Paper
+          </a>
+        </div>
+      </div>
+      <div className={`${styles.buttonWrapper} ${styles.animateFadeInUp}`} style={{ animationDelay: '0.2s' }}>
+        <button
+          className={styles.hackathonBtn}
+          onClick={() => scrollToSection('hackathon-projects')}
+          onMouseEnter={(e) => {
+            e.target.style.backgroundColor = '#def71c';
+            e.target.style.boxShadow = '0 6px 20px rgba(222, 247, 28, 0.5)';
+            e.target.style.transform = 'scale(1.05)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.backgroundColor = '#b6cb18';
+            e.target.style.boxShadow = 'none';
+            e.target.style.transform = 'scale(1)';
+          }}
         >
-          Research Projects
-        </h3>
-      </div>
-      <div className="col-sm-12 col-md-6 col-lg-5 col-xl-4 mb-4 animate-fade-in-up">
-        <div className="research-card p-4 position-relative">
-          <span
-            className="research-year"
-            style={{
-              position: 'absolute',
-              top: '10px',
-              left: '10px',
-              fontSize: '1.2rem',
-              fontWeight: 600,
-              color: '#b6cb18',
-            }}
-          >
-            2024
-          </span>
-          <h4 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#def71c', marginTop: '30px', marginBottom: '10px' }}>
-            Kannada Handwritten Braille Character Recognition
-          </h4>
-          <p style={{ fontSize: '1.1rem', color: '#ffffff', margin: '0' }}>
-            Developed a system using YOLOv5 and CNN to recognize handwritten Kannada Braille, efficiently detecting and classifying dot patterns from real-world images.
-          </p>
-        </div>
-      </div>
-      <div className="col-sm-12 col-md-6 col-lg-5 col-xl-4 mb-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-        <div className="research-card p-4 position-relative">
-          <span
-            className="research-year"
-            style={{
-              position: 'absolute',
-              top: '10px',
-              left: '10px',
-              fontSize: '1.2rem',
-              fontWeight: 600,
-              color: '#b6cb18',
-            }}
-          >
-            2024
-          </span>
-          <h4 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#def71c', marginTop: '30px', marginBottom: '10px' }}>
-            Pathology Dataset Classification
-          </h4>
-          <p style={{ fontSize: '1.1rem', color: '#ffffff', margin: '0' }}>
-            Built a predictive model for chronic kidney disease using Random Forest, KNN, and Decision Tree, enhanced by preprocessing and ROC-AUC evaluation.
-          </p>
-        </div>
+          Keep Going!
+        </button>
       </div>
     </div>
   );

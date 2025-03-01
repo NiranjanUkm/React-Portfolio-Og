@@ -1,0 +1,127 @@
+.skills {
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.container {
+  padding: 1.5rem;
+}
+
+.header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #def71c;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skillColumn {
+  flex: 0 0 16.666667%; /* Roughly 1/6th width for 6 columns */
+  max-width: 16.666667%;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.skillCard {
+  padding: 1.5rem;
+  background: linear-gradient(145deg, #222222, #2a2a2a);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  height: 150px; /* Fixed height instead of min-height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevent text from stretching */
+}
+
+.skillCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(145deg, #2a2a2a, #333333);
+}
+
+.skillCard i {
+  color: #def71c;
+  font-size: 3rem;
+  margin-bottom: 0.75rem; /* Reduced to fit within fixed height */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.skillCard:hover i {
+  transform: scale(1.2);
+  color: #b6cb18;
+}
+
+.skillCard h3 {
+  font-size: 1.2rem; /* Slight reduction to fit */
+  font-weight: 600;
+  margin: 0;
+  transition: color 0.3s ease;
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Truncate long text */
+}
+
+.skillCard:hover h3 {
+  color: #def71c;
+}
+
+.buttonWrapper {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.internBtn {
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  background-color: #b6cb18;
+  color: #161616;
+  border-radius: 25px;
+  border: none;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.animateFadeInUp {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+  .skillColumn {
+    flex: 0 0 33.333333%; /* 3 columns */
+    max-width: 33.333333%;
+  }
+}
+
+@media (max-width: 576px) {
+  .skillColumn {
+    flex: 0 0 50%; /* 2 columns */
+    max-width: 50%;
+  }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
