@@ -6,8 +6,7 @@ function Internships() {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      console.log(`Element with ID ${id} not found`);
+      window.history.pushState(null, '', `#${id}`); // Force URL update
     }
   };
 
@@ -66,4 +65,4 @@ function Internships() {
   );
 }
 
-export default Internships; 
+export default Internships;

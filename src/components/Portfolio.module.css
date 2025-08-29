@@ -6,7 +6,8 @@
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Kill horizontal scrollbar globally */
+  overflow-x: hidden; /* Keep horizontal scrollbar gone */
+  position: relative; /* For sticky button positioning */
 }
 
 .projects {
@@ -15,7 +16,6 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
   width: 100%;
-  overflow-x: hidden; /* Extra safety */
 }
 
 .title {
@@ -25,6 +25,31 @@
   margin-bottom: 3rem;
   text-align: center;
   animation: fadeInUp 1s ease-out forwards;
+}
+
+.upButton {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #b6cb18;
+  color: #161616;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000; /* Stays on top */
+}
+
+.upButton:hover {
+  background-color: #def71c;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(222, 247, 28, 0.5);
 }
 
 @keyframes fadeInUp {
